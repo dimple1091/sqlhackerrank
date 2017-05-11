@@ -1,0 +1,8 @@
+select concat(N,' '),
+case when P is NULL then 'Root' else
+    (case when N not in (select N from bst where N IN (select P from bst) order by N) then 'Leaf' else 'Inner' 
+        end )
+            end 
+        from bst order by N ;
+
+
