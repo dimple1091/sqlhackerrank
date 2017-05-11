@@ -1,0 +1,4 @@
+
+select round(lat_n,4) from
+(select @r:=@r+1 as rownum,lat_n from station,(select @r:=0) t order by lat_n)as q where rownum=((select count(*) from station)+1)/2;
+
