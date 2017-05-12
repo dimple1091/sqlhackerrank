@@ -1,0 +1,6 @@
+select (case when grade<8 then 'Null' else name end),grade,marks from Students join Grades on (Students.Marks between Grades.Min_mark and Grades.Max_Mark) order by grade desc,name; 
+
+
+ 
+
+
