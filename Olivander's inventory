@@ -1,0 +1,2 @@
+select table2.id,age,cn,mp from
+(select w.code as c,age,min(coins_needed) as cn,max(power) as mp from wands w join wands_property wp on w.code=wp.code and wp.is_evil=0 group by age,power,w.code order by mp desc,age desc)table1 join wands table2 on table1.c=table2.code and table1.cn=table2.coins_needed and table1.mp=table2.power order by mp desc,age desc;
