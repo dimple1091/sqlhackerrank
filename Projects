@@ -1,0 +1,5 @@
+select name from
+(select name,s2 from
+(select A,s1,B,s2 from
+(select Friends.ID as A,(select salary from packages where Friends.ID=Packages.ID)as s1,Friend_ID as B,(select salary from packages where Friends.Friend_ID=Packages.ID) as s2 from Friends order by s2)r where r.s1<r.s2 order by r.s2) tables join Students where tables.A=Students.ID order by s2)t;
+
